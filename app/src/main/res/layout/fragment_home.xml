@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModelCategory"
+            type="com.yono.e_commercesupermarket.ui.home.HomeViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_marginTop="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        tools:context=".ui.home.HomeFragment">
+
+        <org.imaginativeworld.whynotimagecarousel.ImageCarousel
+            android:id="@+id/carousel"
+            android:layout_width="match_parent"
+            android:fitsSystemWindows="true"
+            android:layout_height="300dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:showTopShadow="true"
+            app:topShadowAlpha="0.6"
+            app:showBottomShadow="true"
+            app:bottomShadowAlpha="0.6"
+            app:showCaption="true"
+            app:showIndicator="true"
+            app:showNavigationButtons="true"
+            app:imageScaleType="fitCenter"
+            app:carouselBackground="#333333"
+            app:imagePlaceholder="@drawable/ic_picture"
+            app:itemLayout="@layout/item_carousel"
+            app:imageViewId="@id/img"
+            app:previousButtonLayout="@layout/previous_button_layout"
+            app:previousButtonId="@id/btn_previous"
+            app:previousButtonMargin="4dp"
+            app:nextButtonLayout="@layout/next_button_layout"
+            app:nextButtonId="@id/btn_next"
+            app:nextButtonMargin="4dp"
+            app:carouselType="BLOCK"
+            app:scaleOnScroll="false"
+            app:scalingFactor="0.15"
+            app:autoWidthFixing="true"
+            app:autoPlay="false"
+            app:autoPlayDelay="3000" />
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:elevation="0dp"
+            android:theme="@style/AppTheme.AppBarOverlay"
+            android:fitsSystemWindows="true"
+            tools:ignore="MissingConstraints">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/app_bar"
+                style="@style/Widget.Toolbar.Ecommerce"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:paddingStart="12dp"
+                android:paddingLeft="12dp"
+                android:paddingEnd="12dp"
+                android:paddingRight="12dp"
+                app:contentInsetStart="0dp"
+                android:fitsSystemWindows="true"
+                app:menu="@menu/home"
+                app:popupTheme="@style/AppTheme.PopupOverlay">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.TextInputLayout"
+                    android:id="@+id/password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fitsSystemWindows="true"
+                    android:hint="Search"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintVertical_bias="0.11">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
+                        android:imeOptions="actionSearch"
+                        android:fitsSystemWindows="true"
+                        android:maxLines="1" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </androidx.appcompat.widget.Toolbar>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <TextView
+            android:id="@+id/text_category"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Category"
+            android:layout_marginStart="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/carousel"
+            android:layout_marginTop="10dp"
+            android:textAllCaps="true" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvCategory"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            app:layout_constraintTop_toBottomOf="@id/text_category"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="0dp"
+            android:orientation="horizontal"
+            tools:listitem="@layout/item_category" />
+
+
+        <TextView
+            android:id="@+id/text_product"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Product"
+            android:layout_marginStart="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rvCategory"
+            android:layout_marginTop="10dp"
+            android:textAllCaps="true" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvProduct"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/text_product"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="0dp"
+            android:orientation="horizontal"
+            tools:listitem="@layout/item_product" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>
